@@ -42,12 +42,14 @@ class App extends React.Component{
     return(
       <>
         <header>
+              <button className="home">Movies</button>
               <form onSubmit={this.handleOnSubmit}>
                     <input className="search" 
                         type="search" placeholder="Search Movies" 
                         value={this.state.searchValue} 
                     onChange={this.handleOnChange}/>
              </form>
+             <button className="signIn">Sign In</button>
         </header>
         <div className="movie-container">
           {this.state.movies.length > 0 && this.state.movies.map(movie => <Movie {...movie}/>)}
