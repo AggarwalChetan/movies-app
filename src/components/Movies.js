@@ -13,7 +13,7 @@ const setVoteClass = (vote) => {
     }
 };
 
-const Movie = ({ title, poster_path, overview, vote_average }) => {
+const Movie = ({ title, poster_path, overview, vote_average, release_date, vote_count}) => {
     return (
         <div className="movie">
             <img src={poster_path ? (IMG_API + poster_path) : (RANDOM_IMG_API)} alt={title} />
@@ -24,7 +24,9 @@ const Movie = ({ title, poster_path, overview, vote_average }) => {
 
             <div className="movie-over">
                 <h2>Overview</h2>
+                <h4>{release_date}</h4>
                 <p>{overview}</p>
+                <h5>Total Vote Count - {vote_count}</h5>
             </div>
         </div>
     );

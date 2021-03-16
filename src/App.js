@@ -44,7 +44,7 @@ class App extends React.Component{
         <header>
               <form onSubmit={this.handleOnSubmit}>
                     <input className="search" 
-                        type="search" placeholder="Search..." 
+                        type="search" placeholder="Search Movies" 
                         value={this.state.searchValue} 
                     onChange={this.handleOnChange}/>
              </form>

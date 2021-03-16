@@ -71,8 +71,9 @@ body{
 
 header{
   background-color: #373b69;
+  display: flex;
   padding: 1rem;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .search{
