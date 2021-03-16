@@ -7,17 +7,13 @@ class App extends React.Component{
     this.state = {movies : [], searchValue : ''};
   };
 
-  getMoviesInfo = (MOVIES_API) =>{
-    fetch(MOVIES_API)
+  componentDidMount(){
+    const DEFAULT_MOVIES_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=61cec280feda32b806f9f3187c008707&page=1";
+    fetch(DEFAULT_MOVIES_API)
     .then(res => res.json())
     .then((data) => {
       this.setState({movies : data.results});
     });
-  }
-
-  componentDidMount(){
-    const DEFAULT_MOVIES_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=61cec280feda32b806f9f3187c008707&page=1";
-    this.getMoviesInfo(DEFAULT_MOVIES_API);
   }
 
   handleOnSubmit = (event) => {
