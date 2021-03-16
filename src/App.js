@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Movie from './components/Movies';
 
 class App extends React.Component{
@@ -8,8 +8,7 @@ class App extends React.Component{
   };
 
   componentDidMount = () =>{
-    const DEFAULT_MOVIES_API = "/api";
-    fetch(DEFAULT_MOVIES_API)
+    fetch('/api')
     .then(res => res.json())
     .then((data) => {
       this.setState({movies : data.results});
@@ -21,13 +20,27 @@ class App extends React.Component{
     
     const SEARCH_MOVIES_API = "http://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
 
-    if(this.searchValue != ''){
+    if(this.searchValue !== ''){
       fetch(SEARCH_MOVIES_API + this.state.searchValue)
       .then(res => res.json())
       .then((data) => {this.setState({movies : data.results});});
+      
       this.setState({searchValue : ''});
     }
-    
+
+    // if(this.searchValue !== ''){
+    //   fetch('/api/Search', {
+    //     method : 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //     },
+    //     body: JSON.stringify(this.state.searchValue)
+    //   }).then(res => res.json())
+    //   .then((data) => {this.setState({movies : data.results});});
+      
+    //   this.setState({searchValue : ''});
+    // }
 }
 
   handleOnChange = (event) => {

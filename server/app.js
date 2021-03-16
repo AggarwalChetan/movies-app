@@ -6,9 +6,11 @@ const { default: axios } = require('axios');
 // To work on the response in json
 router.use(express.json());
 
+const DEFAULT_MOVIES_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=61cec280feda32b806f9f3187c008707&page=1";
+const SEARCH_MOVIES_API = "http://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
+
 movies = {};
 const getMovies = (req, res) => {
-    const DEFAULT_MOVIES_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=61cec280feda32b806f9f3187c008707&page=1";
     axios(DEFAULT_MOVIES_API)
     .then(res => res.data)
     .then(data => {
@@ -21,8 +23,8 @@ router.get('/', getMovies);
 
 searchMovies = {};
 const getMoviesBySearch = (req, res) => {
-    const SEARCH_MOVIES_API = "http://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
-    axios(SEARCH_MOVIES_API)
+    console.log(user);
+    axios(SEARCH_MOVIES_API + req.body.searchValue)
     .then(res => res.data)
     .then(data => {
         movies = data;
@@ -30,6 +32,6 @@ const getMoviesBySearch = (req, res) => {
     })
 }
 
-router.get('/Search', getMovies);
+router.post('/Search', getMoviesBySearch);
 
 module.exports = router;
