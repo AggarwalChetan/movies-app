@@ -8,7 +8,7 @@ class App extends React.Component{
   };
 
   componentDidMount(){
-    const DEFAULT_MOVIES_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=61cec280feda32b806f9f3187c008707&page=1";
+    const DEFAULT_MOVIES_API = "/api";
     fetch(DEFAULT_MOVIES_API)
     .then(res => res.json())
     .then((data) => {
@@ -38,15 +38,13 @@ class App extends React.Component{
     return(
       <>
         <header>
-              <button className="home">Movies</button>
-              <form onSubmit={this.handleOnSubmit}>
-                    <input className="search" 
-                        type="search" placeholder="Search Movies" 
-                        value={this.state.searchValue} 
-                    onChange={this.handleOnChange}/>
-             </form>
-             <button className="signIn">Sign In</button>
+          <button className="home">Movies</button>
+          <form onSubmit={this.handleOnSubmit}>
+            <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange}/>
+          </form>
+          <button className="signIn">Sign In</button>
         </header>
+
         <div className="movie-container">
           {this.state.movies.length > 0 && this.state.movies.map(movie => <Movie {...movie}/>)}
         </div>
