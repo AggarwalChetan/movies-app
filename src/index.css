@@ -128,11 +128,11 @@ header{
 }
 
 .tag.green{
-  color: green;
+  color: lightgreen;
 }
 
-.tag.orange{
-  color:orange
+.tag.yellow{
+  color: yellow;
 }
 
 .tag.red{
