@@ -7,7 +7,7 @@ class App extends React.Component{
     this.state = {movies : [], searchValue : ''};
   };
 
-  componentDidMount(){
+  componentDidMount = () =>{
     const DEFAULT_MOVIES_API = "/api";
     fetch(DEFAULT_MOVIES_API)
     .then(res => res.json())
@@ -38,7 +38,7 @@ class App extends React.Component{
     return(
       <>
         <header>
-          <button className="home">Movies</button>
+          <button className="home" onClick={this.componentDidMount}>Movies</button>
           <form onSubmit={this.handleOnSubmit}>
             <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange}/>
           </form>
