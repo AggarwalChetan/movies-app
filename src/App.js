@@ -25,7 +25,7 @@ class App extends React.Component {
       fetch(SEARCH_MOVIES_API + this.state.searchValue)
         .then(res => res.json())
         .then((data) => { this.setState({ movies: data.results }); });
-
+        
       this.setState({ searchValue: '' });
     }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
           <form onSubmit={this.handleOnSubmit}>
             <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange} />
           </form>
-          <Login action="Sign In" />
+          <Login value="signIn" action="Sign In" />
         </header>
 
         <div className="movie-container">

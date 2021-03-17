@@ -21,7 +21,7 @@ class Login extends React.Component {
     render() {
         return (
             <>
-                <button className="signIn" onClick={this.showLogin}>{this.props.action}</button>
+                <button className={this.props.value} onClick={this.showLogin}>{this.props.action}</button>
                 <Modal className="login" isOpen={this.state.loginFormOpen}>
                     <div className="loginContainer">
                         <div className="closebuttonContainer">
