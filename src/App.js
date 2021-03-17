@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './components/Movies';
+import Login from './components/Login';
 
 class App extends React.Component{
   constructor(props){
@@ -55,7 +56,7 @@ class App extends React.Component{
           <form onSubmit={this.handleOnSubmit}>
             <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange}/>
           </form>
-          <button className="signIn">Sign In</button>
+          <Login action="Sign In"/>
         </header>
 
         <div className="movie-container">
