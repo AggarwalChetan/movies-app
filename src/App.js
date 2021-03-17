@@ -52,7 +52,7 @@ class App extends React.Component {
     return (
       <>
         <header>
-          <button className="homeMovies" onClick={this.componentDidMount}>Movies</button>
+          <button className="homeMovies" onClick={this.componentDidMount}>Home</button>
           <form onSubmit={this.handleOnSubmit}>
             <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange} />
           </form>
