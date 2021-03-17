@@ -19,7 +19,7 @@ class App extends React.Component{
   handleOnSubmit = (event) => {
     event.preventDefault();
     
-    const SEARCH_MOVIES_API = "http://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
+    const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
 
     if(this.searchValue !== ''){
       fetch(SEARCH_MOVIES_API + this.state.searchValue)
