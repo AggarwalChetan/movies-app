@@ -8,6 +8,7 @@ class App extends React.Component {
     this.state = { movies: [], searchValue: ''};
   };
 
+  // for home page
   componentDidMount = () => {
     fetch('/api')
       .then(res => res.json())
@@ -16,6 +17,7 @@ class App extends React.Component {
       });
   }
 
+  // for searching the movies
   handleOnSubmit = (event) => {
     event.preventDefault();
     if(this.state.searchValue !== ''){

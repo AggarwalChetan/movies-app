@@ -7,7 +7,7 @@ const { default: axios } = require('axios');
 router.use(express.json());
 
 const DEFAULT_MOVIES_API = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=61cec280feda32b806f9f3187c008707&page=7";
-const SEARCH_MOVIES_API = "http://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
+const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
 
 movies = {};
 const getMovies = (req, res) => {
