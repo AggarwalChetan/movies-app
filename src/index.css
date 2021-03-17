@@ -97,7 +97,7 @@ header{
   outline: 0;
 }
 
-.home{
+.homeMovies{
   background-color: #12142c;
   border: 3px solid #373b69;
   font-family: inherit;
@@ -108,7 +108,7 @@ header{
   border-radius: 5px;
 }
 
-.home:focus{
+.homeMovies:focus{
   outline: 0;
 }
 
@@ -228,4 +228,29 @@ label {
   letter-spacing: 1px;
   background-color: #4756fc;
   cursor: pointer;
+}
+
+.closebutton {
+  /* display: flex;
+  flex-direction: inherit;
+  align-content: flex-start; */
+  border: 3px solid #4756fc;
+  display: inline-block;
+  /* padding: 6px 12px; */
+  text-decoration: none;
+  color: white;
+  background-color: #4756fc;
+  text-align: center;
+  cursor: pointer;
+  font:bolder;
+}
+
+.closebutton:focus{
+  outline: 0;
+}
+
+.closebuttonContainer {
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-end;
 }

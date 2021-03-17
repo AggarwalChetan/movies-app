@@ -24,6 +24,9 @@ class Login extends React.Component{
                <button className="signIn" onClick={this.showLogin}>{this.props.action}</button>
                <Modal className="login" isOpen={this.state.loginFormOpen}>
                    <div className="loginContainer">
+                        <div className="closebuttonContainer">
+                            <button className="closebutton" onClick={this.hideLogin}>X</button>
+                        </div>
                        <label>Email</label>
                        <input type="text" name="email" value={this.state.email} onChange={this.handleChange}></input>
                        <label>Password</label>
