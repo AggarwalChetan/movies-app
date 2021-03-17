@@ -23,15 +23,14 @@ router.get('/', getMovies);
 
 searchMovies = {};
 const getMoviesBySearch = (req, res) => {
-    console.log(user);
     axios(SEARCH_MOVIES_API + req.body.searchValue)
     .then(res => res.data)
     .then(data => {
-        movies = data;
+        searchMovies = data;
         res.send(searchMovies);
     })
 }
 
-router.post('/Search', getMoviesBySearch);
+router.post('/search', getMoviesBySearch);
 
 module.exports = router;

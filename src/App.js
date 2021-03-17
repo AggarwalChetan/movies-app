@@ -18,30 +18,19 @@ class App extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
+    if(this.state.searchValue !== ''){
+      fetch('/api/search', {
+        method : 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({searchValue : this.state.searchValue})
+      }).then(res => res.json())
+      .then((data) => {this.setState({movies : data.results});});
 
-    const SEARCH_MOVIES_API = "https://api.themoviedb.org/3/search/movie?&api_key=61cec280feda32b806f9f3187c008707&query=";
-
-    if (this.searchValue !== '') {
-      fetch(SEARCH_MOVIES_API + this.state.searchValue)
-        .then(res => res.json())
-        .then((data) => { this.setState({ movies: data.results }); });
-        
-      this.setState({ searchValue: '' });
+      this.setState({searchValue : ''});
     }
-
-    // if(this.searchValue !== ''){
-    //   fetch('/api/Search', {
-    //     method : 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Accept': 'application/json'
-    //     },
-    //     body: JSON.stringify(this.state.searchValue)
-    //   }).then(res => res.json())
-    //   .then((data) => {this.setState({movies : data.results});});
-
-    //   this.setState({searchValue : ''});
-    // }
   }
 
   handleOnChange = (event) => {
