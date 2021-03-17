@@ -1,15 +1,15 @@
 const setVoteClass = (vote) => {
-    if(vote >= 8){
+    if (vote >= 8) {
         return 'green';
-    }else if(vote >= 5){
+    } else if (vote >= 5) {
         return 'yellow';
-    }else{
+    } else {
         return 'red';
     }
 };
 
-function MoviesAverageVoteCount(props){
-    return(
+function MoviesAverageVoteCount(props) {
+    return (
         <span className={`tag ${setVoteClass(props.vote_average)}`}>{props.vote_average}</span>
     );
 }

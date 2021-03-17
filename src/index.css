@@ -1,24 +1,23 @@
-
 * {
-   box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #12142c;
   color: white;
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
 
-.root{
+.root {
   display: flex;
   flex-direction: column;
 }
 
-.movie{
+.movie {
   background-color: #373b69;
   border-radius: 3px;
-  box-shadow: 3px 3px 5px rgba(0, 0,0, 0.1);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   /* border: none; */
   overflow: hidden;
   position: relative;
@@ -26,42 +25,42 @@ body{
   width: 280px;
 }
 
-.movie:focus{
+.movie:focus {
   outline: 0;
 }
 
-.movie img{
-  object-fit:cover;
+.movie img {
+  object-fit: cover;
   height: 400px;
   width: 100%;
   cursor: pointer;
 }
 
-.movie-container{
+.movie-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.movie-info{
+.movie-info {
   display: flex;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
 }
 
-.movie-info h3{
+.movie-info h3 {
   margin: 0;
 }
 
-.movie-over{
+.movie-over {
   background-color: white;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  box-shadow: 0 -3px 5px rgba(0, 0,0, 0.1);
-  text-align:start;
-  color:#12142c;
-  position : absolute;
+  box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1);
+  text-align: start;
+  color: #12142c;
+  position: absolute;
   padding: 1rem;
   bottom: 0;
   left: 0;
@@ -72,18 +71,18 @@ body{
   transition: transform 0.3s ease-in-out;
 }
 
-.movie:hover .movie-over{
+.movie:hover .movie-over {
   transform: translateY(0%);
 }
 
-header{
+header {
   background-color: #373b69;
   display: flex;
   padding: 1rem;
   justify-content: space-between;
 }
 
-.search{
+.search {
   background-color: transparent;
   border: 2px solid #12142c;
   color: white;
@@ -93,11 +92,11 @@ header{
   padding: 0.5rem 1.5rem;
 }
 
-.search:focus{
+.search:focus {
   outline: 0;
 }
 
-.homeMovies{
+.homeMovies {
   background-color: #12142c;
   border: 3px solid #373b69;
   font-family: inherit;
@@ -108,11 +107,11 @@ header{
   border-radius: 5px;
 }
 
-.homeMovies:focus{
+.homeMovies:focus {
   outline: 0;
 }
 
-.signIn{
+.signIn {
   background-color: transparent;
   border: 3px solid #373b69;
   font-family: inherit;
@@ -123,26 +122,26 @@ header{
   border-radius: 5px;
 }
 
-.signIn:focus{
+.signIn:focus {
   outline: 0;
 }
 
-.tag{
+.tag {
   background-color: #12142c;
   border-radius: 5px;
   font-size: bold;
   padding: 0.5rem;
 }
 
-.tag.green{
+.tag.green {
   color: lightgreen;
 }
 
-.tag.yellow{
+.tag.yellow {
   color: yellow;
 }
 
-.tag.red{
+.tag.red {
   color: red;
 }
 
@@ -162,12 +161,7 @@ header{
   display: flex;
   flex-direction: column;
   justify-content: center;
-   background: radial-gradient(
-    ellipse at left bottom,
-    rgba(22, 24, 47, 1) 0%,
-    rgba(38, 20, 72, 0.9) 59%,
-    rgba(17, 27, 75, 0.9) 100%
-  );
+  background: radial-gradient( ellipse at left bottom, rgba(22, 24, 47, 1) 0%, rgba(38, 20, 72, 0.9) 59%, rgba(17, 27, 75, 0.9) 100%);
 }
 
 label {
@@ -218,7 +212,7 @@ label {
   font-size: 16px;
 }
 
-.login .loginContainer .btnContainer button{
+.login .loginContainer .btnContainer button {
   border: none;
   outline: none;
   width: 100%;
@@ -231,30 +225,26 @@ label {
 }
 
 .closebutton {
-  /* display: flex;
-  flex-direction: inherit;
-  align-content: flex-start; */
   border: 3px solid #4756fc;
   display: inline-block;
-  /* padding: 6px 12px; */
   text-decoration: none;
   color: white;
   background-color: #4756fc;
   text-align: center;
   cursor: pointer;
-  font:bolder;
+  font: bolder;
 }
 
-.closebutton:focus{
+.closebutton:focus {
   outline: 0;
 }
 
 .closebuttonContainer {
   display: flex;
-  flex-direction:row;
-  justify-content:flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
-.closebutton:hover{
-  color:red;
+.closebutton:hover {
+  color: red;
 }

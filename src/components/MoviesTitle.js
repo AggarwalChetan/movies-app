@@ -1,5 +1,5 @@
-function MoviesTitle(props){
-    return(
+function MoviesTitle(props) {
+    return (
         <h3>{props.title}</h3>
     );
 }
