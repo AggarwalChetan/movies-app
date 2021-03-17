@@ -7,7 +7,7 @@ function Application() {
         <Router>
             <Switch>
                 <Route exact path ="/" component={App}/>
-                <Route exact path ="/Explore" component={ExploreMovies}/>
+                <Route exact path ="/Explore/:id" component={ExploreMovies}/>
             </Switch>
         </Router>
     );
