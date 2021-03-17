@@ -7,6 +7,10 @@ class Login extends React.Component {
         this.state = { loginFormOpen: false, email: '', password: '' };
     };
 
+    componentWillReceiveProps(props){
+        this.setState({loginFormOpen : props.loginFormValue});
+    }
+
     showLogin = () => {
         this.setState({ loginFormOpen: true });
     }
@@ -21,7 +25,6 @@ class Login extends React.Component {
     render() {
         return (
             <>
-                <button className="signIn" onClick={this.showLogin}>{this.props.action}</button>
                 <Modal className="login" isOpen={this.state.loginFormOpen}>
                     <div className="loginContainer">
                         <div className="closebuttonContainer">

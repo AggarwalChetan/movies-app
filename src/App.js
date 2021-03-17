@@ -5,8 +5,12 @@ import Login from './components/Login';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { movies: [], searchValue: '' };
+    this.state = { movies: [], searchValue: '', loginFormValue: false};
   };
+
+  showLogin = () => {
+    this.setState({loginFormValue : true});
+  }
 
   componentDidMount = () => {
     fetch('/api')
@@ -56,7 +60,8 @@ class App extends React.Component {
           <form onSubmit={this.handleOnSubmit}>
             <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange} />
           </form>
-          <Login action="Sign In" />
+          <button className="signIn" onClick={this.showLogin}>Sign In</button>
+          <Login loginFormValue={this.state.loginFormValue}/>
         </header>
 
         <div className="movie-container">
