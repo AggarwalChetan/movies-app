@@ -11,9 +11,6 @@ class Login extends React.Component {
         this.setState({loginFormOpen : props.loginFormValue});
     }
 
-    showLogin = () => {
-        this.setState({ loginFormOpen: true });
-    }
 
     hideLogin = () => {
         this.setState({ loginFormOpen: false })
