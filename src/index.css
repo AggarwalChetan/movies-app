@@ -254,3 +254,7 @@ label {
   flex-direction:row;
   justify-content:flex-end;
 }
+
+.closebutton:hover{
+  color:red;
+}
