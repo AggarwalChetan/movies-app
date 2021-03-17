@@ -7,8 +7,9 @@ function MoviesOverview(props) {
             <h4>{props.release_date}</h4>
             <p>{props.overview}</p>            
             <h5>Total Vote Count - {props.vote_count}</h5>
-            <div>
-                <Login value="voteButton" action="Want to Rate?" />
+            <div className="buttonContainer">
+                <Login value="voteButton" action="Rate"/>
+                <button className="exploreMovie">Explore</button>
             </div>
             
         </div>
