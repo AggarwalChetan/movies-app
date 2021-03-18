@@ -396,8 +396,6 @@ header {
 } */
 
 .movieById{
-  background-color: #373b69;
-  border-radius: 3px;
   margin: 2rem;
   width: 25%;
 }
