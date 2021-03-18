@@ -5,7 +5,7 @@ import Star from './Star';
 class Rate extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loginFormOpen: false};
+        this.state = { loginFormOpen: false, review : ''};
     };
 
     showLogin = () => {
@@ -14,6 +14,10 @@ class Rate extends React.Component {
     
     hideLogin = () => {
         this.setState({ loginFormOpen: false })
+    }
+
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     render() {
@@ -28,7 +32,8 @@ class Rate extends React.Component {
                         <label className="rateThis">RATE THIS</label>
                         <ul className="rateBtnContainer">
                             <li><Star/></li>
-                            <li><button>Rate</button></li>                            
+                            <li><textarea placeholder="Review..." className="review"type="text" name="review" value={this.state.review} onChange={this.handleChange}></textarea></li>              
+                            <li><button>Submit</button></li>              
                         </ul>
                     </div>
                      
