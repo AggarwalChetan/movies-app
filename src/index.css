@@ -433,3 +433,11 @@ header {
   font-size: 40px;
   font-family:fantasy;
 }
+
+.movieByIdContainer .date{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.temp{
+  word-spacing: 30px;
+}
