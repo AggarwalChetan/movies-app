@@ -33,4 +33,17 @@ const getMoviesBySearch = (req, res) => {
 
 router.post('/search', getMoviesBySearch);
 
+searchMoviesInfo = {};
+const getSearchMoviesInfo = (req, res) => {
+    axios(`http://api.themoviedb.org/3/movie/${req.body.id}?api_key=61cec280feda32b806f9f3187c008707`)
+    .then(res => res.data)
+    .then(data => {
+        searchMoviesInfo = data;
+        res.send(searchMoviesInfo);
+    })
+}
+
+router.post('/searchById', getSearchMoviesInfo);
+
+
 module.exports = router;

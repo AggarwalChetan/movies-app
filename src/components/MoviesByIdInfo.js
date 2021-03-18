@@ -1,17 +1,39 @@
-function MoviesByIdInfo(props){
 
-    // let moviesById = {};
-    // const SEARCH_MOVIES_API = `http://api.themoviedb.org/3/movie/${props.id}?api_key=61cec280feda32b806f9f3187c008707`;
-    
-    // fetch(SEARCH_MOVIES_API)
-    // .then(res => res.json())
-    // .then(data => {
-    //     moviesById = data;
-    //     console.log(moviesById.overview);
-    // });
+import React from 'react';
 
-    // console.log(moviesById)
-    return(<div className="temp">{props.id}</div>);
+class MoviesByIdInfo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { movies : {}, id : 522938};
+  };
+
+  // for home page
+  componentDidMount = (props) => {
+    fetch('/api/searchById', {
+        method : 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({id : this.props.id})
+      }).then(res => res.json())
+      .then((data) => {this.setState({movies : data});});
+  }
+
+  render() {
+    return (
+      <>
+      
+      <div>{this.state.movies.overview}</div>
+      <div>{this.state.movies.vote_average}</div>
+      <div>{this.state.movies.vote_count}</div>
+      <div>{this.state.movies.tagline}</div>
+      <div>{this.state.movies.title}</div>
+      </>
+    );
+  };
+
 }
+
 
 export default MoviesByIdInfo;
