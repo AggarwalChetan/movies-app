@@ -29,7 +29,7 @@ class MoviesByIdInfo extends React.Component {
       <div className="movieByIdContainer">
         <div className="movieById">
           <MoviesPoster poster_path={this.state.movies.poster_path} title={this.state.movies.title} />
-          <MoviesInfo title={this.state.movies.title} vote_average={0} />
+          <MoviesInfo title={this.state.movies.title} vote_average={this.state.movies.vote_average} />
         </div>
         <div className="movieByIdInfo">
             <ul>
