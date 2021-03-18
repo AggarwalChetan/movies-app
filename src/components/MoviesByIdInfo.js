@@ -32,13 +32,16 @@ class MoviesByIdInfo extends React.Component {
           <MoviesInfo title={this.state.movies.title} vote_average={0} />
         </div>
         <div className="movieByIdInfo">
-            <div>{this.state.movies.overview}</div>
-            <div>{this.state.movies.title}</div>
-            <div>{this.state.movies.vote_average}</div>
-            <div>{this.state.movies.vote_count}</div>
-            <div>{this.state.movies.release_date}</div>
-            <div>{this.state.movies.tagline}</div>
-            <MoviesRate/>
+            <ul>
+            <li className="overview"><div>Overview</div></li>
+            <li><div>{this.state.movies.overview}</div></li>
+            <li><div>{this.state.movies.title}</div></li>
+            <li><div>{this.state.movies.vote_average}</div></li>
+            <li><div>{this.state.movies.vote_count}</div></li>
+            <li><div>{this.state.movies.release_date}</div></li>
+            <li><div>{this.state.movies.tagline}</div></li>
+            </ul>
+            
         </div>
       </div>
       

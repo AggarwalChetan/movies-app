@@ -423,3 +423,13 @@ header {
   flex-wrap: wrap;
   justify-content: start;
 }
+
+.movieByIdContainer li{
+  list-style-type: none;
+  padding : 0.5rem;
+}
+
+.movieByIdContainer .overview{
+  font-size: 40px;
+  font-family:fantasy;
+}
