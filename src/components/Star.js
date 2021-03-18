@@ -15,13 +15,13 @@ class Star extends React.Component{
         return(
         <div>{[ ...Array(10)].map((star, index) => 
             {
-                let ratingValue = index + 1;
+                const ratingValue = index + 1;
                 return (
                 <label>
                     <input type="radio" name="rating" value={ratingValue} onClick={this.handleSetRating}/>
-                    <FaStar name="hover" className="starRating" color={ratingValue <= (this.state.hover || this.state.rating) ? "yellow" : "grey"} size={25} 
-                        onMouseEnter ={this.handleSetRating} 
-                        onMouseLeave={this.handleSetRating}
+                    <FaStar name="hover" value={ratingValue} className="starRating" color={ratingValue <= (this.state.hover || this.state.rating) ? "yellow" : "grey"} size={25} 
+                        onMouseEnter = {() => this.setState({hover : ratingValue})} 
+                        onMouseLeave =  {() => this.setState({hover : 0})} 
                     />
                 </label>
                 );
