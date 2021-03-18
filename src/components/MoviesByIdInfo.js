@@ -34,7 +34,7 @@ class MoviesByIdInfo extends React.Component {
         <div className="movieByIdInfo">
             <ul>
             <li className="overview"><div>Overview</div></li>
-            <li><label className="date">IMDb </label><label className="temp">{this.state.movies.vote_average} {this.state.movies.release_date}</label></li>
+            <li><label className="date">IMDb </label><label className="spaceBetweenText">{this.state.movies.vote_average} {this.state.movies.release_date}</label></li>
             <li><div className="overviewText">{this.state.movies.overview}</div></li>
             </ul>
             
