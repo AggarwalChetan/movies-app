@@ -388,3 +388,25 @@ header {
   color: #fff;
   letter-spacing: 1px;
 }
+
+/* .movieByIdContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+.movieById{
+  background-color: #373b69;
+  border-radius: 3px;
+  margin: 2rem;
+  width: 25%;
+}
+
+.movieById:focus {
+  outline: 0;
+}
+
+.movieById img {
+  object-fit:cover;
+  width: 100%;
+}
