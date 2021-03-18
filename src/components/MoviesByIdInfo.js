@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Movie from './Movies';
 import MoviesPoster from './MoviesPoster';
+import MoviesInfo from './MoviesInfo';
 
 class MoviesByIdInfo extends React.Component {
   constructor(props) {
@@ -25,17 +25,18 @@ class MoviesByIdInfo extends React.Component {
   render() {
     return (
       <>
-      {/* <div className="movie-container"> */}
-      {/* <div>{this.state.movies.overview}</div>
-      <div>{this.state.movies.vote_average}</div>
-      <div>{this.state.movies.vote_count}</div>
-      <div>{this.state.movies.tagline}</div>
-      <div>{this.state.movies.title}</div> */}
       <div className="movieByIdContainer">
-      <div className="movieById">
+        <div className="movieById">
           <MoviesPoster poster_path={this.state.movies.poster_path} title={this.state.movies.title} />
-      </div>
-      <div>{this.state.movies.vote_count}</div>
+          <MoviesInfo title={this.state.movies.title} vote_average={0} />
+        </div>
+        <div className="movieByIdInfo">
+            <div>{this.state.movies.overview}</div>
+            <div>{this.state.movies.title}</div>
+            <div>{this.state.movies.vote_average}</div>
+            <div>{this.state.movies.vote_count}</div>
+            <div>{this.state.movies.tagline}</div>
+        </div>
       </div>
       
 {/*       
