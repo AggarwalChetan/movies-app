@@ -1,8 +1,8 @@
 import React from 'react';
-import Movie from './components/Movies';
-import Login from './components/Login';
+import UsersMovies from './UsersMovies';
+import MoviesSignOut from './MoviesSignOut';
 
-class App extends React.Component {
+class UsersApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { movies: [], searchValue: ''};
@@ -47,11 +47,11 @@ class App extends React.Component {
           <form onSubmit={this.handleOnSubmit}>
             <input className="search" type="search" placeholder="Search Movies" value={this.state.searchValue} onChange={this.handleOnChange} />
           </form>
-          <Login value="signIn" action="Sign In" />
+          <MoviesSignOut location=''/>
         </header>
 
         <div className="movie-container">
-          {this.state.movies.length > 0 && this.state.movies.map(movie => <Movie {...movie} />)}
+          {this.state.movies.length > 0 && this.state.movies.map(movie => <UsersMovies {...movie} />)}
         </div>
       </>
     );
@@ -59,4 +59,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default UsersApp;

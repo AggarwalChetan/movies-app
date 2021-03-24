@@ -15,4 +15,3 @@ function MoviesAverageVoteCount(props) {
 }
 
 export default MoviesAverageVoteCount;
-

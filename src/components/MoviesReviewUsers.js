@@ -1,20 +1,46 @@
 import React from 'react';
-import Modal from 'react-modal';
 import { FaStar } from 'react-icons/fa';
+import Modal from 'react-modal';
 
-class Rate extends React.Component {
+class MoviesReviewUsers extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loginFormOpen: false, review: '', rating : 0, hover : 0, id : '', submitFlag : false, reviewDone : false};
-    };
+        this.state = { reviewFormOpen: false , reviewCount : 0, ratingCount : 0, averageRatingCount : 0, loginFormOpen: false, review: '', rating : 0, hover : 0, id : '', submitFlag : false, reviewDone : false, email : [], review : [], rate : [], reviewData : []};
+    }
 
-    handleSetRating = (event) => {
-        if(this.state.submitFlag === true){
-            alert('Please remove previous response first');
-            return;
-        }
+    openReviews = () => {
+        this.setState({ reviewFormOpen: true });
 
-        this.setState({[event.target.name] : event.target.value});
+        const request = new Request(`/api/movies/${this.props.id}`, {
+            method: "GET",
+        });
+
+        fetch(request)
+            .then((resp) => resp.json())
+            .then(resp => {
+                console.log(resp);
+                if(resp.error === 'movie not found'){
+                    return;
+                }
+
+                const data = resp.data;
+                let idx = 0;
+                let localReview = [];
+                let localEmail = [];
+                let localRating = [];
+                data.forEach(data => {
+                    localReview[idx] = data.review;
+                    localEmail[idx] = data.email;
+                    localRating[idx] = data.rate;
+                    ++ idx;
+                });
+
+                this.setState({email : localEmail, rate : localRating, review:localReview})
+            });
+    }
+
+    closeReviews = () => {
+        this.setState({ reviewFormOpen: false });
     }
 
     componentDidMount = (props) => {
@@ -40,7 +66,15 @@ class Rate extends React.Component {
             });
     }
 
-    
+    handleSetRating = (event) => {
+        if(this.state.submitFlag === true){
+            alert('Please remove previous response first');
+            return;
+        }
+
+        this.setState({[event.target.name] : event.target.value});
+    }
+
     handleReviewChange = (event) => {
         if(this.state.submitFlag === true){
             alert('Please remove previous response first');
@@ -85,10 +119,11 @@ class Rate extends React.Component {
         this.setState({rating : 0, review : '', submitFlag : false});
     }
 
+
     render() {
         return (
             <>
-                <button className={this.props.value} onClick={this.showLogin}>{this.props.action}</button>
+            <button className={this.props.value} onClick={this.showLogin}>{this.props.action}</button>
                 <Modal className="rating" isOpen={this.state.loginFormOpen}>
                     <div className="ratingContainer">
                         <div className="ratingClosebuttonContainer">
@@ -114,10 +149,32 @@ class Rate extends React.Component {
                         <button onClick={this.removeRating} className="remoteRating">Remove Response</button>
                     </div>
                 </Modal>
+            <div className="date"><label >Rating Count -  </label><label className="spaceBetweenText">{this.state.ratingCount}  </label>Review Count - {this.state.reviewCount}<label className="spaceBetweenText"> Average</label> Rating Count - {this.state.averageRatingCount}</div>
+                <span onClick={this.openReviews} className="reviewOverviewText">Reviews  {[...Array(10)].map(() => { return <FaStar color="yellow" size={13} /> })}</span>
+                <>
+                <Modal className="rating2" isOpen={this.state.reviewFormOpen}>
+                    <div className="ratingContainer">
+                        <div className="ratingClosebuttonContainer">
+                            <button className="ratingClosebutton" onClick={this.closeReviews}>X</button>
+                        </div>
+                        <div color="white">{[...Array(`${this.state.ratingCount}`)].reverse().map((index) => {
+                            let value = index - 1;
+                                    return (
+                                        <>
+                                        <ul className="ul">Email - {this.state.email[value]}</ul>
+                                        <ul className="ol">Review - {this.state.review[value]}</ul> 
+                                        <ul className="ol">Rating - {this.state.rate[value]}</ul>
+                                        </>
+                                    );
+                                })}
+                                </div>
+                    </div>
+                    
+                </Modal>
+                </>
             </>
-        );
+        )
     }
 }
 
-export default Rate;
-
+export default MoviesReviewUsers;

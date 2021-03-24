@@ -1,13 +1,14 @@
 import React from 'react';
 import MoviesPoster from './MoviesPoster';
 import MoviesInfo from './MoviesInfo';
-import Login from './Login';
-import MoviesReview from './MoviesReview';
+import Rate from './Rate';
+import MoviesReviewUsers from './MoviesReviewUsers';
 
-class MoviesByIdInfo extends React.Component {
+
+class UsersMoviesByIdInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { movies : [], id : 522938};
+    this.state = { movies : []};
   };
 
   // for home page
@@ -23,6 +24,17 @@ class MoviesByIdInfo extends React.Component {
       .then((data) => {this.setState({movies : data});});
   }
 
+  handleTemp = () => {
+        const request = new Request("/api/users/me", {
+            method: "GET"
+          });
+      
+          fetch(request)
+          .then((request) => {
+              console.log(request.json());
+          });
+  }
+
   render() {
     return (
       <>
@@ -36,9 +48,8 @@ class MoviesByIdInfo extends React.Component {
             <li className="overview"><div>Overview</div></li>
             <li><label className="date">IMDb </label><label className="spaceBetweenText">{this.state.movies.vote_average} {this.state.movies.release_date}</label></li>
             <li><div className="overviewText">{this.state.movies.overview}</div></li>
-            <li><div>{ <Login value="moviesByIdRate" action="Rate"/>}</div></li>
-            {/* <li className="date"><label >Rating Count -  </label><label className="spaceBetweenText">0  </label>Review Count - 0</li> */}
-            <li><MoviesReview id={this.props.id}/></li>
+            {/* <li><div>{<Rate value="moviesByIdRate" action="Rate" id={this.props.id}/>}</div></li> */}
+            <li><MoviesReviewUsers id={this.props.id} value="moviesByIdRate" action="Rate" id={this.props.id}/></li>
             </ul>
         </div>
       </div>
@@ -49,4 +60,4 @@ class MoviesByIdInfo extends React.Component {
 }
 
 
-export default MoviesByIdInfo;
+export default UsersMoviesByIdInfo;
