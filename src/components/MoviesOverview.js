@@ -15,7 +15,6 @@ function MoviesOverview(props) {
             <h2>Overview</h2>
             <h4>{props.release_date}</h4>
             <p>{props.overview}</p>            
-            <h5>Total Vote Count - {props.vote_count}</h5>
             <div className="buttonContainer">
                 <Rate value="voteButton" action="Rate"/>
                 <button className="exploreMovie" onClick={handleExplore}>Explore</button>
