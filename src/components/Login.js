@@ -32,63 +32,63 @@ class Login extends React.Component {
 
   userLogIn = () => {
 
-    if(this.state.email === ""){
-      this.setState({emailError : 'Email Id not present'});
-    }else if(this.state.password === ''){
-      this.setState({passError : 'Password not present'});
-    }
+    // if(this.state.email === ""){
+    //   this.setState({emailError : 'Email Id not present'});
+    // }else if(this.state.password === ''){
+    //   this.setState({passError : 'Password not present'});
+    // }
 
 
-    if(this.state.signInrequest === 'Sign In'){
-      const request = new Request("/api/sessions", {
-        method: "POST",
-        headers: new Headers({"Content-Type": "application/json"}),
-        body: JSON.stringify({email: this.state.email,password: this.state.password})
-      });
+    // if(this.state.signInrequest === 'Sign In'){
+    //   const request = new Request("/api/sessions", {
+    //     method: "POST",
+    //     headers: new Headers({"Content-Type": "application/json"}),
+    //     body: JSON.stringify({email: this.state.email,password: this.state.password})
+    //   });
   
-      fetch(request)
-      .then(resp => {
-        if(resp.status === 400){
-          if(this.state.email === '' && this.state.password === ''){
-            this.setState({emailError : 'Email not present', passError : 'Password not present'});
-          }else if(this.state.password === ''){
-            this.setState({passError : 'Password not present'});
-          }else if(this.state.email === ''){
-            this.setState({emailError : 'Email Id not present'});
-          }else if(this.state.email !== '' && this.state.password !== ''){
-            alert('Incorrect Email or Password');
-          }
-          return;
-        }
-        this.setState({ loginFormOpen: false , email : '', password : '', emailError : '', passError : ''});
-        window.location = '/user-profile';
-      })
+    //   fetch(request)
+    //   .then(resp => {
+    //     if(resp.status === 400){
+    //       if(this.state.email === '' && this.state.password === ''){
+    //         this.setState({emailError : 'Email not present', passError : 'Password not present'});
+    //       }else if(this.state.password === ''){
+    //         this.setState({passError : 'Password not present'});
+    //       }else if(this.state.email === ''){
+    //         this.setState({emailError : 'Email Id not present'});
+    //       }else if(this.state.email !== '' && this.state.password !== ''){
+    //         alert('Incorrect Email or Password');
+    //       }
+    //       return;
+    //     }
+    //     this.setState({ loginFormOpen: false , email : '', password : '', emailError : '', passError : ''});
+    //     window.location = '/user-profile';
+    //   })
 
-    }else{
-      const request = new Request("/api/users", {
-        method: "POST",
-        headers: new Headers({"Content-Type": "application/json"}),
-        body: JSON.stringify({email: this.state.email,password: this.state.password})
-      });
+    // }else{
+    //   const request = new Request("/api/users", {
+    //     method: "POST",
+    //     headers: new Headers({"Content-Type": "application/json"}),
+    //     body: JSON.stringify({email: this.state.email,password: this.state.password})
+    //   });
   
-      fetch(request)
-      .then(resp => {
-        if(resp.status === 400){
-          if(this.state.email === '' && this.state.password === ''){
-            this.setState({emailError : 'Email not present', passError : 'Password not present'});
-          }else if(this.state.password === ''){
-            this.setState({passError : 'Password not present'});
-          }else if(this.state.email === ''){
-            this.setState({emailError : 'Email Id not present'});
-          }else if(this.state.email !== '' && this.state.password !== ''){
-            alert('Email Already Present');
-          }
-          return;
-        }
-        this.setState({ loginFormOpen: false , email : '', password : '',  emailError : '', passError : ''});
-        window.location = '/user-profile';
-      })
-    }
+    //   fetch(request)
+    //   .then(resp => {
+    //     if(resp.status === 400){
+    //       if(this.state.email === '' && this.state.password === ''){
+    //         this.setState({emailError : 'Email not present', passError : 'Password not present'});
+    //       }else if(this.state.password === ''){
+    //         this.setState({passError : 'Password not present'});
+    //       }else if(this.state.email === ''){
+    //         this.setState({emailError : 'Email Id not present'});
+    //       }else if(this.state.email !== '' && this.state.password !== ''){
+    //         alert('Email Already Present');
+    //       }
+    //       return;
+    //     }
+    //     this.setState({ loginFormOpen: false , email : '', password : '',  emailError : '', passError : ''});
+    //     window.location = '/user-profile';
+    //   })
+    // }
   }
 
   render() {

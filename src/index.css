@@ -417,10 +417,6 @@ header {
   width: 280px;
 }
 
-.movieByIdInfo-text{
-  /* padding: 1rem; */
-}
-
 .movieByIdInfo {
   border-radius: 3px;
   overflow: hidden;
