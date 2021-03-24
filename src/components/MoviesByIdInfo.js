@@ -10,7 +10,7 @@ class MoviesByIdInfo extends React.Component {
     this.state = { movies : [], id : 522938};
   };
 
-  // for home page
+  // home page
   componentDidMount = (props) => {
     fetch('/api/searchById', {
         method : 'POST',
