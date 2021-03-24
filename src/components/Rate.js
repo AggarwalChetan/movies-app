@@ -59,26 +59,26 @@ class Rate extends React.Component {
     }
 
     submitReviews = (props) => {
-        let request;
-        if(this.state.reviewDone && !this.state.submitFlag){
-                request = new Request("/api/reviews", {
-                method: "PATCH",
-                headers: new Headers({"Content-Type": "application/json"}),
-                body: JSON.stringify({movieid: this.props.id, review: this.state.review, rate: this.state.rating})
-              });
-        }else{
-                request = new Request("/api/reviews", {
-                method: "POST",
-                headers: new Headers({"Content-Type": "application/json"}),
-                body: JSON.stringify({movieid: this.props.id, review: this.state.review, rate: this.state.rating})
-              });
-        }      
-          fetch(request)
-          .then(() => {
-              alert('Thanks for the response')
-              this.setState({ loginFormOpen: false , submitFlag : true, reviewDone : true});
-              this.componentDidMount();
-          });
+        // let request;
+        // if(this.state.reviewDone && !this.state.submitFlag){
+        //         request = new Request("/api/reviews", {
+        //         method: "PATCH",
+        //         headers: new Headers({"Content-Type": "application/json"}),
+        //         body: JSON.stringify({movieid: this.props.id, review: this.state.review, rate: this.state.rating})
+        //       });
+        // }else{
+        //         request = new Request("/api/reviews", {
+        //         method: "POST",
+        //         headers: new Headers({"Content-Type": "application/json"}),
+        //         body: JSON.stringify({movieid: this.props.id, review: this.state.review, rate: this.state.rating})
+        //       });
+        // }      
+        //   fetch(request)
+        //   .then(() => {
+        //       alert('Thanks for the response')
+        //       this.setState({ loginFormOpen: false , submitFlag : true, reviewDone : true});
+        //       this.componentDidMount();
+        //   });
     }
 
     removeRating = () => {
