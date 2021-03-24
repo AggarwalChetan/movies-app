@@ -417,6 +417,10 @@ header {
   width: 280px;
 }
 
+.movieByIdInfo-text{
+  /* padding: 1rem; */
+}
+
 .movieByIdInfo {
   border-radius: 3px;
   overflow: hidden;
@@ -532,7 +536,6 @@ header {
 
 .ul{
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
 }
 
 .ol{
@@ -563,6 +566,11 @@ header {
   
   .bigStar {
     margin-left: 32%; 
+  }
+
+  .movieByIdInfo-text{
+    padding: 1rem;
+    padding-top: 0;
   }
   
 }
